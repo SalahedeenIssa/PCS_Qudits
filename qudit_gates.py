@@ -173,7 +173,7 @@ class ErrorZGate(cirq.Gate):
                  [0,0,omega**2]])
 
     def _circuit_diagram_info(self, args):
-        return 'Z'
+        return 'Z3'
 
 
 class ErrorZ2Gate(cirq.Gate):

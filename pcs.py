@@ -39,7 +39,7 @@ def simulate_noisy_circuit(noisy_circuit: cirq.Circuit, shots:int=1000):
     measured_qubits = []
     for operation in noisy_circuit.all_operations():
         if cirq.is_measurement(operation):
-            measured_qubits.append[operation.qubits[0]]
+            measured_qubits.append(operation.qubits[0])
     results_dict = result.multi_measurement_histogram(keys=[f'{qubit}' for qubit in measured_qubits])
     return results_dict
 
