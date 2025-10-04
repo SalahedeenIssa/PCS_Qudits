@@ -36,8 +36,11 @@ def simulate_noisy_circuit(noisy_circuit: cirq.Circuit, shots:int=1000):
         A dictionary containing the results counter
     '''
     result = cirq.sample(noisy_circuit, repetitions=shots)
-    total_qubits = noisy_circuit.all_qubits()
-    results_dict = result.multi_measurement_histogram(keys=[f'{qubit}' for qubit in total_qubits])
+    measured_qubits = []
+    for operation in noisy_circuit.all_operations():
+        if cirq.is_measurement(operation):
+            measured_qubits.append[operation.qubits[0]]
+    results_dict = result.multi_measurement_histogram(keys=[f'{qubit}' for qubit in measured_qubits])
     return results_dict
 
 def post_process_results(results_dict: collections.Counter, ancilla_index: int = -1):
