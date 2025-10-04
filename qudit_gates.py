@@ -37,7 +37,7 @@ class QutritZHalfGate(cirq.Gate):
 
     def _unitary_(self):
         return (1/np.sqrt(3))*np.array([[1,0,0],
-                                        [0,omega**(3/2)]]
+                                        [0,omega**(3/2)]])
 
 class QutritZGate(cirq.Gate):
     '''
